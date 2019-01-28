@@ -82,7 +82,7 @@ func (o Rake) Extract(text string) ([]string, error) {
 func (o Rake) splitSentence(sentence string) phrase {
 	p := phrase{words: make([]string, 0, 0)}
 	replacer := strings.NewReplacer(",", " ", ".", " ", ";", " ", "!", " ", "?", " ", ":", " ", "\\", " ", "/", " ", "=", " ", "´", " ", "'", " ", "\"", " ", "”", " ", "…", " ",
-		"§", " ", "[", " ", "(", " ", "]", " ", ")", " ", "€", " ", "_", " ")
+		"§", " ", "[", " ", "(", " ", "]", " ", ")", " ", "€", " ", "_", " ", "<", " ", ">", " ", "&", " ")
 	sentence = replacer.Replace(sentence)
 	words := strings.Fields(sentence)
 	for i := 0; i < len(words); i++ {
