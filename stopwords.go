@@ -393,4 +393,6 @@ var STOPWORDS = []string{
 	"article",
 	"kalender",
 	"calendar",
+	"uploads",
+	"newsletter",
 }
