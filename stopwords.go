@@ -422,4 +422,8 @@ var STOPWORDS = []string{
 	"portfolio",
 	"gallery",
 	"kontaktformular",
+	"googletagmanager",
+	"text",
+	"right",
+	"template",
 }
