@@ -87,7 +87,7 @@ func (o Rake) splitSentence(sentence string) phrase {
 	sentence = replacer.Replace(sentence)
 	words := strings.Fields(sentence)
 	for i := 0; i < len(words); i++ {
-		if _, ok := o.stopwords[words[i]]; !ok && len(words[i]) > 3 && !isNumeric(words[i]) {
+		if _, ok := o.stopwords[words[i]]; !ok && len(words[i]) > 3 && !isNumeric(words[i]) && !startsWithNumber(words[i]) {
 			p.words = append(p.words, words[i])
 		}
 	}
@@ -124,4 +124,14 @@ func phrasescore(p phrase, scores map[string]float64) float64 {
 func isNumeric(s string) bool {
 	_, err := strconv.ParseFloat(s, 64)
 	return err == nil
+}
+
+func startsWithNumber(s string) bool {
+	var digits = []string{"0", "1", "2", "3", "4", "5", "6", "7", "9"}
+	for i := 0; i < len(digits); i++ {
+		if strings.HasPrefix(s, digits[i]) {
+			return true
+		}
+	}
+	return false
 }
