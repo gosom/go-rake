@@ -5,7 +5,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"time"
 
 	"gopkg.in/neurosnap/sentences.v1"
 )
