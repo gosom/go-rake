@@ -220,6 +220,7 @@ var STOPWORDS = []string{
 	"unserem",
 	"unseren",
 	"unseres",
+	"unserer",
 	"unter",
 	"viel",
 	"vom",
@@ -406,4 +407,8 @@ var STOPWORDS = []string{
 	"ausbildung",
 	"angebot",
 	"cms",
+	"http",
+	"https",
+	"captcha",
+	"wurde",
 }

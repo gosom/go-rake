@@ -84,6 +84,7 @@ func (e *WordTokenizer) HasSentEndChars(t *sentences.Token) bool {
 		`."`, `.'`, `.)`, `.’`, `.”`,
 		`?`, `?"`, `?'`, `?)`, `?’`, `?”`,
 		`!`, `!"`, `!'`, `!)`, `!’`, `!”`,
+		`*`,
 	}
 
 	for _, ender := range enders {
