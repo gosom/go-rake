@@ -1,7 +1,6 @@
 package rake
 
 import (
-	"log"
 	"regexp"
 	"sort"
 	"strconv"
@@ -44,7 +43,6 @@ func New(stopwords []string) (Rake, error) {
 }
 
 func (o Rake) Extract(text string) ([]string, error) {
-	t1 := time.Now()
 	text = strings.ToLower(text)
 	splitted := splitter.Split(text, -1)
 	text = strings.Join(splitted, " ")
@@ -68,14 +66,11 @@ func (o Rake) Extract(text string) ([]string, error) {
 		return pscores[i].score > pscores[j].score
 	})
 	picknum := len(pscores) / 3
-	log.Println(picknum)
 	result := make([]string, picknum, picknum)
 	for i := 0; i < picknum; i++ {
 		result[i] = pscores[i].phrase
 	}
 
-	elapsed := time.Now().Sub(t1)
-	log.Println("Finished ", elapsed)
 	return result, nil
 }
 
