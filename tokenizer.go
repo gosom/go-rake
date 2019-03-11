@@ -2,6 +2,7 @@ package rake
 
 import (
 	"io/ioutil"
+	"os"
 	"path"
 	"regexp"
 	"runtime"
@@ -19,7 +20,10 @@ var reAbbr = regexp.MustCompile(`((?:[\w]\.)+[\w]*\.)`)
 // German customized sentence tokenizer.
 func NewSentenceTokenizer() (*sentences.DefaultSentenceTokenizer, error) {
 
-	_, filename, _, _ := runtime.Caller(1)
+	filename := os.Getenv("RAKE_HOME")
+	if filename == "" {
+		filename = os.Getenv("HOME")
+	}
 	filepath := path.Join(path.Dir(filename), "german.json")
 
 	b, err := ioutil.ReadFile(filepath)
