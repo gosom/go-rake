@@ -5,7 +5,6 @@ import (
 	"os"
 	"path"
 	"regexp"
-	"runtime"
 	"strings"
 
 	"gopkg.in/neurosnap/sentences.v1"
